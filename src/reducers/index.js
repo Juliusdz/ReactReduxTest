@@ -9,8 +9,7 @@ const initialState = {
   person: {val1: undefined, val2: undefined},
   facility: {val3: undefined, val4: undefined},
   exposure: {val5: undefined},
-  totalValue: undefined,
-  errorMsg: undefined
+  result: undefined,
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -20,9 +19,9 @@ export default function rootReducer(state = initialState, action) {
     case GET_FACILITY_SUCCESS:
       return { ...state, ...{ facility: action.facility } }
     case GET_EXPOSURE_SUCCESS:
-      return { ...state, ...{ totalValue: +state.facility.val3 * +action.exposure.val5 } }
+      return { ...state, ...{ result: +state.facility.val3 * +action.exposure.val5 } }
     case GET_DATA_FAILURE:
-      return { ...state, ...{ errorMsg: action.errorMsg } }        
+      return { ...state, ...{ result: action.errorMsg } }        
     default:
       return state
   }

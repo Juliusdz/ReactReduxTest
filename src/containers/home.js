@@ -45,7 +45,7 @@ class Home extends React.Component {
           ref={this.everlayRef}
           onClick={this.overlayOff}
         >
-          <h1 style={overlayText}>{this.props.totalValue}</h1>
+          <h1 style={overlayText}>{this.props.result}</h1>
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
@@ -64,11 +64,11 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  totalValue: state.totalValue
+  result: state.result
 })
 
 Home.propTypes = {
-  totalValue: PropTypes.number
+  result: PropTypes.number
 }
 
 export default connect(mapStateToProps)(Home)
